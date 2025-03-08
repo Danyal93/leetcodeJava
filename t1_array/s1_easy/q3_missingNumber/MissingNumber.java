@@ -1,6 +1,6 @@
 package t1_array.s1_easy.q3_missingNumber;
 
-class Solution {
+class Solution1 {
     public int missingNumber(int[] nums) {
         int xor1 = 0;
         for (int i = 0; i < nums.length; i++) {
@@ -10,6 +10,24 @@ class Solution {
             xor1 = xor1 ^ i;
         }
         return xor1;
+    }
+}
+class Solution {
+    public int missingNumber(int[] nums) {
+        // IMPLEMENTED USING CYCLIC SORT
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            while (nums[i] >= 0 && nums[i] < n && nums[nums[i]] != nums[i]) {
+                int temp = nums[i];
+                nums[i] = nums[temp];
+                nums[temp] = temp;
+            }
+        }
+        for (int i = 0; i < n; ++i)
+            if (nums[i] != i)
+                return i;
+
+        return n;
     }
 }
 
