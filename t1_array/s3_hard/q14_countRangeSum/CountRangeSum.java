@@ -29,9 +29,9 @@ class Solution {
     private int countRange(long[] prefixSum, int start, int mid, int end, int lower, int upper) {
         int i = start, j = mid + 1, k = mid + 1, count = 0;
         while (i <= mid) {
-            while (j <= end && prefixSum[i] > prefixSum[j] - lower)
+            while (j <= end && prefixSum[i] > prefixSum[j] - lower) // since "j" is on the lesser side, therefore we increase "j" :- this pattern follows in all this kind of questions
                 j++;
-            while (k <= end && prefixSum[i] >= prefixSum[k] - upper)
+            while (k <= end && prefixSum[i] >= prefixSum[k] - upper) // since "k" is on the lesser side, therefore we increase "k" :- this pattern follows in all this kind of questions
                 k++;
 
             count += k - j;

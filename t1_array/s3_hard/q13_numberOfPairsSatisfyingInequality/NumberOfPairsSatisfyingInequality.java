@@ -11,7 +11,7 @@ class Solution {
         int i = start;
         int j = mid + 1;
         while (j <= end) {
-            while (i <= mid && diffArray[i] <= diffArray[j] + diff)
+            while (i <= mid && diffArray[i] <= diffArray[j] + diff) // since "i" is on the lesser side, therefore we increase "i" :- this pattern follows in all this kind of questions
                 i++;
             j++;
             count += (i - start);

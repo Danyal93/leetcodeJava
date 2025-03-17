@@ -37,7 +37,7 @@ class Solution {
         int j = mid + 1;
         int count = 0;
         while (i <= mid) {
-            while (j <= end && nums[i] > (long) 2 * nums[j])
+            while (j <= end && nums[i] > (long) 2 * nums[j]) // since "j" is on the lesser side, therefore we increase "j" :- this pattern follows in all this kind of questions
                 j++;
             count += j - mid - 1;
             i++;
